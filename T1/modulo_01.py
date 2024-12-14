@@ -70,7 +70,7 @@ def build_contracts_matrix(filename: str) -> (int, int, float, [[[float]]]):
                     suppliers_count = int(metadata[1])
                     change_fee = float(metadata[2])
                     contracts_matrix = [
-                        [["---"] * (longest_contract_term + 1) for _ in range(longest_contract_term + 1)]
+                        [["inf"] * (longest_contract_term + 1) for _ in range(longest_contract_term + 1)]
                         for _ in range(suppliers_count + 1)
                     ]
                 else:
@@ -134,5 +134,4 @@ def export_csv(filename: str, matrix: list):
             writer.writerow([f"Supplier {i}"])  # Add a header for each supplier
             writer.writerows(supplier)
             writer.writerow([])  # Blank line between suppliers
-
-    print(f"Matrix successfully exported to {filename}")
+        print(f"Matrix successfully exported to {filename}")
